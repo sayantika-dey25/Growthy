@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Growthy Focus Tracker",
+  "version": "1.0.0",
+  "description": "Companion focus timer extension for Growthy.",
+  "permissions": [
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://localhost:3000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {}
+}

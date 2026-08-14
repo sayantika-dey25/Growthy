@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Growthy — Mindful Time Tracker</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-area">
+        <span class="logo-icon">🌱</span>
+        <h1 class="logo-text">Growthy</h1>
+      </div>
+      <p class="tagline">Grow your focus, one branch at a time</p>
+    </header>
+
+    <!-- Active Timer Widget -->
+    <div id="active-timer-widget" class="active-timer-widget hidden">
+      <div class="widget-content">
+        <div class="widget-details">
+          <span class="pulse-indicator"></span>
+          <div class="text-group">
+            <span class="widget-label">Currently Tracking</span>
+            <span id="active-entry-title" class="widget-title">None</span>
+          </div>
+        </div>
+        <div class="timer-controls">
+          <span id="active-timer-display" class="timer-display">00:00:00</span>
+          <button id="stop-timer-btn" class="btn btn-stop" title="Stop Timer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path fill-rule="evenodd" d="M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9z" clip-rule="evenodd" />
+            </svg>
+            Stop
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Stack Dashboard -->
+    <main class="dashboard-stack">
+      <!-- 1. Add Entry Card (Full Width) -->
+      <div class="card glass-card form-card">
+        <h2 class="section-title">Add Trackable</h2>
+        <form id="add-entry-form" class="entry-form">
+          <div class="form-group flex-title">
+            <label for="entry-title">Activity Title</label>
+            <input type="text" id="entry-title" placeholder="e.g. Coding DSA in JavaScript" required>
+          </div>
+          <div class="form-group flex-url">
+            <label for="entry-url">URL / Website Link</label>
+            <input type="url" id="entry-url" placeholder="e.g. https://freecodecamp.org" required>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submit-entry-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="18" height="18">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Add Activity
+          </button>
+        </form>
+      </div>
+
+      <!-- 2. Today's Totals Card with Pie Chart (Full Width) -->
+      <div class="card glass-card totals-card">
+        <h2 class="section-title">Today's Totals</h2>
+        <div class="totals-layout">
+          <!-- Left Column: Pie Chart -->
+          <div class="pie-chart-container">
+            <div id="pie-chart" class="pie-chart">
+              <div class="pie-empty">🌱</div>
+            </div>
+          </div>
+          <!-- Right Column: List -->
+          <div id="totals-list" class="totals-list">
+            <div class="empty-totals">
+              <p>No tracked time today yet. Hit "Start" on an activity to grow your hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Entries List Container (Full Width, at the end) -->
+      <div class="entries-section">
+        <h2 class="section-title">Trackable Activities</h2>
+        <div id="entries-list" class="entries-list">
+          <div class="empty-state">
+            <p>No trackables added yet. Fill in the form above to plant your first time seed!</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>&copy; 2026 Growthy. Handcrafted for mindful productivity.</p>
+    </footer>
+  </div>
+
+  <!-- Client-side Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
